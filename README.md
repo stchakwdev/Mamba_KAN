@@ -141,7 +141,7 @@ If you use this code in your research, please cite:
     title={Mamba-KAN: A Factorial Comparison of Neural Network Architectures},
     author={[Samuel T Chakwera]},
     year={2025},
-    url={https://github.com/[your-username]/Mamba_KAN}
+    url={https://github.com/stchakwdev/Mamba_KAN}
 }
 ```
 
