@@ -139,7 +139,7 @@ If you use this code in your research, please cite:
 ```bibtex
 @misc{mamba_kan_comparison,
     title={Mamba-KAN: A Factorial Comparison of Neural Network Architectures},
-    author={[Your Name]},
+    author={[Samuel T Chakwera]},
     year={2025},
     url={https://github.com/[your-username]/Mamba_KAN}
 }
