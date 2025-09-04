@@ -1,7 +1,5 @@
 # A Comprehensive Research Plan for Comparing KAN, Mamba, and Transformer Architectures
 
-**Author:** Manus AI
-
 **Date:** September 4, 2025
 
 ## 1. Introduction
