@@ -21,11 +21,11 @@ class KANTransformerConfig(TransformerConfig):
     
     model_type: str = "kan_transformer"
     
-    # Reduced dimensions to match parameter count
+    # Heavily reduced dimensions to match MLP parameter count
     n_heads: int = 8
-    d_ff: int = 1400  # ~30% reduction for parameter matching
+    d_ff: int = 350  # Significantly reduced for parameter matching with grid=3,k=2
     
-    # KAN-specific parameters
+    # Optimized KAN parameters for efficiency
     kan_config: KANConfig = field(default_factory=KANConfig)
 
 

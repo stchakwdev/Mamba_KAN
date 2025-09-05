@@ -19,11 +19,13 @@ class KANBlock(nn.Module):
         
         # Create KAN with specified architecture
         # [input_dim, hidden_dim, output_dim]
+        # Note: KAN may create checkpoint directories - this is normal behavior
         self.kan = KAN(
             width=[d_model, d_ff, d_model],
             grid=kan_config.grid_size,
             k=kan_config.spline_order,
             noise_scale=kan_config.noise_scale,
+            save_act=False,  # Disable activation saving for efficiency
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -62,6 +64,7 @@ class KANProjection(nn.Module):
             grid=kan_config.grid_size,
             k=kan_config.spline_order,
             noise_scale=kan_config.noise_scale,
+            save_act=False,  # Disable activation saving for efficiency
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -103,6 +106,7 @@ class MultiKANProjection(nn.Module):
                 grid=kan_config.grid_size,
                 k=kan_config.spline_order,
                 noise_scale=kan_config.noise_scale,
+                save_act=False,  # Disable activation saving for efficiency
             ) for output_dim in output_dims
         ])
     

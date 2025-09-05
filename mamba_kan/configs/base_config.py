@@ -65,8 +65,8 @@ class MambaConfig(BaseConfig):
 class KANConfig:
     """Configuration for KAN layers."""
     
-    grid_size: int = 5
-    spline_order: int = 3
+    grid_size: int = 3  # Reduced from 5 for efficiency
+    spline_order: int = 2  # Reduced from 3 for efficiency
     noise_scale: float = 0.1
     base_activation: str = "silu"  # Base activation function
     grid_eps: float = 0.02
