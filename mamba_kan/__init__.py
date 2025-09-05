@@ -3,23 +3,35 @@
 __version__ = "0.1.0"
 __author__ = "Mamba-KAN Research Team"
 
-# Core model exports
+# Core model exports (Mamba models optional)
 from .models import (
     MLPTransformer,
     KANTransformer,
-    MLPMamba, 
-    KANMamba,
     create_model,
 )
+
+# Try to import Mamba models (optional)
+try:
+    from .models import MLPMamba, KANMamba
+    MAMBA_AVAILABLE = True
+except ImportError:
+    MAMBA_AVAILABLE = False
+    MLPMamba = None
+    KANMamba = None
 
 # Configuration exports
 from .configs.model_configs import (
     MLPTransformerConfig,
     KANTransformerConfig,
-    MLPMambaConfig,
-    KANMambaConfig,
     get_model_config,
 )
+
+# Try to import Mamba configs (optional)
+try:
+    from .configs.model_configs import MLPMambaConfig, KANMambaConfig
+except ImportError:
+    MLPMambaConfig = None
+    KANMambaConfig = None
 
 # Utility exports
 from .utils.parameter_counter import (
