@@ -24,9 +24,6 @@ class KANBlock(nn.Module):
             grid=kan_config.grid_size,
             k=kan_config.spline_order,
             noise_scale=kan_config.noise_scale,
-            base_activation=kan_config.base_activation,
-            grid_eps=kan_config.grid_eps,
-            grid_range=kan_config.grid_range,
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -65,9 +62,6 @@ class KANProjection(nn.Module):
             grid=kan_config.grid_size,
             k=kan_config.spline_order,
             noise_scale=kan_config.noise_scale,
-            base_activation=kan_config.base_activation,
-            grid_eps=kan_config.grid_eps,
-            grid_range=kan_config.grid_range,
         )
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -109,9 +103,6 @@ class MultiKANProjection(nn.Module):
                 grid=kan_config.grid_size,
                 k=kan_config.spline_order,
                 noise_scale=kan_config.noise_scale,
-                base_activation=kan_config.base_activation,
-                grid_eps=kan_config.grid_eps,
-                grid_range=kan_config.grid_range,
             ) for output_dim in output_dims
         ])
     
