@@ -137,6 +137,7 @@ def test_kan_dependencies():
     print("="*60)
     
     try:
+        import torch
         from kan import KAN
         print(f"✅ KAN available")
         
