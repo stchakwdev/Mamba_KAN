@@ -190,14 +190,19 @@ def test_mamba_dependencies():
     print("="*60)
     
     try:
+        import torch
         import mamba_ssm
         print(f"✅ Mamba-SSM available")
         
+        # Get device (prefer CUDA for Mamba)
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {device}")
+        
         # Test basic Mamba
         from mamba_ssm import Mamba
-        mamba = Mamba(d_model=64, d_state=16)
+        mamba = Mamba(d_model=64, d_state=16).to(device)
         
-        x = torch.randn(2, 10, 64)
+        x = torch.randn(2, 10, 64, device=device)
         mamba_out = mamba(x)
         print(f"✅ Basic Mamba: {x.shape} -> {mamba_out.shape}")
         
@@ -206,9 +211,9 @@ def test_mamba_dependencies():
         from mamba_kan.configs.model_configs import MLPMambaConfig
         
         config = MLPMambaConfig(d_model=64, n_layers=2, vocab_size=1000, d_state=16, expand=2.0)
-        mlp_mamba = MLPMamba(config)
+        mlp_mamba = MLPMamba(config).to(device)
         
-        dummy_input = torch.randint(0, 1000, (2, 10))
+        dummy_input = torch.randint(0, 1000, (2, 10), device=device)
         mlp_mamba.eval()
         with torch.no_grad():
             logits = mlp_mamba(dummy_input)

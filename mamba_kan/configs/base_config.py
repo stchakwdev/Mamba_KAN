@@ -68,7 +68,6 @@ class KANConfig:
     grid_size: int = 5
     spline_order: int = 3
     noise_scale: float = 0.1
-    noise_scale_base: float = 0.1
     base_activation: str = "silu"  # Base activation function
     grid_eps: float = 0.02
     grid_range: list = None  # Will default to [-1, 1]
