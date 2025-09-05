@@ -137,11 +137,10 @@ def test_kan_dependencies():
     print("="*60)
     
     try:
-        import pykan
-        print(f"✅ PyKAN available: version {getattr(pykan, '__version__', 'unknown')}")
+        from kan import KAN
+        print(f"✅ KAN available")
         
         # Test KAN creation
-        from pykan import KAN
         kan = KAN(width=[64, 128, 64], grid=5, k=3)
         x = torch.randn(10, 64)
         kan_out = kan(x)
@@ -174,7 +173,7 @@ def test_kan_dependencies():
         return True
         
     except ImportError as e:
-        print(f"❌ PyKAN not available: {e}")
+        print(f"❌ KAN not available: {e}")
         print("To install: pip install pykan")
         return False
     except Exception as e:
